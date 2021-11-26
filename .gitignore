@@ -178,5 +178,9 @@ Thumbs.db
 # Ignore built ts files
 dist/**/*
 
-# ignore yarn.lock
+# Ignore yarn.lock
 yarn.lock
+
+# Hardhat files
+cache
+artifacts
