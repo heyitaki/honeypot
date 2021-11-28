@@ -1,4 +1,5 @@
 import '@nomiclabs/hardhat-waffle';
+import '@typechain/hardhat';
 import dotenv from 'dotenv';
 import { HardhatUserConfig } from 'hardhat/config';
 
@@ -19,6 +20,12 @@ const config: HardhatUserConfig = {
         runs: 3,
       },
     },
+  },
+  typechain: {
+    outDir: 'typechain',
+    target: 'ethers-v5',
+    alwaysGenerateOverloads: false,
+    externalArtifacts: ['externalArtifacts/*.json'],
   },
 };
 
