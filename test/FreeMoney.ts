@@ -1,13 +1,11 @@
-import { PayableOverrides } from '@ethersproject/contracts';
 import { expect } from 'chai';
 import { ethers } from 'hardhat';
-
-const eth = (amt: number) => ethers.utils.parseEther(amt.toString());
+import { eth } from '../scripts/utils';
 
 describe('Free money contract', function () {
   it('Constructor', async function () {
     const freeMoneyContract = await ethers.getContractFactory('FreeMoney');
-    const freeMoney = await freeMoneyContract.deploy({ value: eth(0.5) } as PayableOverrides);
+    const freeMoney = await freeMoneyContract.deploy({ value: eth(0.5) });
     expect(await ethers.provider.getBalance(freeMoney.address)).to.be.equal(eth(0.5));
   });
 
