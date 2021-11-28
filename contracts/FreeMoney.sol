@@ -16,6 +16,7 @@ contract FreeMoney is Ownable {
 
   function claim() public payable {
     require(msg.value >= _baseAmount, 'Base amount was not provided');
+    require(_claimAmount <= address(this).balance, 'Deposit more funds');
     require(msg.sender != _dummy, 'This is a mock call');
     payable(msg.sender).transfer(msg.value + _claimAmount);
   }
