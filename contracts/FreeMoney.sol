@@ -8,7 +8,7 @@ contract FreeMoney is Ownable {
   uint256 private _claimAmount;
   address private _dummy;
 
-  constructor() {
+  constructor() payable {
     _baseAmount = 1 ether;
     _claimAmount = .03 ether;
     _dummy = msg.sender;
